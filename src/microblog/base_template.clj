@@ -8,7 +8,7 @@
   [:nav
    (image "/quill_image40x40.png")
    [:h1
-    [:a {:href "/"} "&#181Blog"]]
+    [:a {:href "/"} "Quill"]]
    (if user
      [:ul
       [:li
@@ -28,7 +28,7 @@
    (doctype :html5)
    [:html
     [:head
-     [:title "&#181Blog - " title]
+     [:title "Quill - " title]
      [:link {:rel "shortcut icon" :href "/quill_favicon16x16.png"}]
      (include-css "/css/style.css")
      (if (= :small template-size)
