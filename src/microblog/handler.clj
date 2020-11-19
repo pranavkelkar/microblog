@@ -37,12 +37,12 @@
    ])
 
 (defn base-template
-  [user content template-size]
+  [user title content template-size]
   (html
    (doctype :html5)
    [:html
     [:head
-     [:title "&#181Blog"]
+     [:title "&#181Blog - " title]
      [:link {:rel "shortcut icon" :href "quill_favicon16x16.png"}]
      (include-css "css/style.css")
      (if (= :small template-size)
@@ -75,7 +75,7 @@
 
 (defn register-page
   []
-  (base-template nil register-content :small))
+  (base-template nil "Register" register-content :small))
 
 (defn login-form
   []
@@ -98,7 +98,7 @@
 
 (defn login-page
   []
-  (base-template nil login-content :small))
+  (base-template nil "Login" login-content :small))
 
 (defn index-content
   []
@@ -119,7 +119,7 @@
 
 (defn index-page
   []
-  (base-template nil index-content :large))
+  (base-template nil "Posts" index-content :large))
 
 
 
