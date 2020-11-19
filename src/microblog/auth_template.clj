@@ -4,9 +4,9 @@
 
 (defn register-form
   []
-  (form-to [:post "#"]
-           (label :user "Username")
-           (text-field :user)
+  (form-to [:post "/register"]
+           (label :username "Username")
+           (text-field :username)
            (label :password "Password")
            (password-field :password)
            [:button {:type "submit"} "Register"]))
@@ -28,8 +28,8 @@
 (defn login-form
   []
   (form-to [:post "#"]
-           (label :user "Username")
-           (text-field :user)
+           (label :username "Username")
+           (text-field :username)
            (label :password "Password")
            (password-field :password)
            [:button {:type "submit"} "Log In"]))
