@@ -1,7 +1,7 @@
 (ns microblog.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
-            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
             [ring.util.response       :as   response])
   (:use     [microblog.auth_template :only [register-page login-page]]
             [microblog.blog_template :only [index-page create-page update-page]]))
