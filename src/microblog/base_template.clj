@@ -1,7 +1,8 @@
 (ns microblog.base_template
-  (:use [hiccup.core :only [html]]
-        [hiccup.page :only [doctype include-css]]
-        [hiccup.element :only [image]]))
+  (:require [noir.session  :as   session])
+  (:use     [hiccup.core    :only [html]]
+            [hiccup.page    :only [doctype include-css]]
+            [hiccup.element :only [image]]))
 
 (defn generate-nav
   [user]
@@ -24,18 +25,23 @@
 
 (defn base-template
   [user title content template-size]
-  (html
-   (doctype :html5)
-   [:html
-    [:head
-     [:title "Quill - " title]
-     [:link {:rel "shortcut icon" :href "/quill_favicon16x16.png"}]
-     (include-css "/css/style.css")
-     (if (= :small template-size)
-       (include-css "/css/small_template.css")
-       (include-css "/css/large_template.css"))
-     ]
-    [:body
-     (generate-nav user)
-     (content)
-     ]]))
+  (let [flash-message (session/flash-get :message)
+        flash-error   (session/flash-get :error)]
+    (html
+     (doctype :html5)
+     [:html
+      [:head
+       [:title "Quill - " title]
+       [:link {:rel "shortcut icon" :href "/quill_favicon16x16.png"}]
+       (include-css "/css/style.css")
+       (if (= :small template-size)
+         (include-css "/css/small_template.css")
+         (include-css "/css/large_template.css"))
+       ]
+      [:body
+       (generate-nav user)
+       (when flash-message (println "debug flash message"))
+       (when flash-error (println "debug flash error"))
+       (when flash-message [:div {:class "flash"} flash-message])
+       (content)
+       ]])))

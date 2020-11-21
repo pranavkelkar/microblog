@@ -21,14 +21,14 @@ To start a web server for the application, run:
 
 ## Database
 
-Login to database:
+**Login to database:**
 
 ```
 psql -U postgres --password
 postgres
 ```
 
-Create database:
+**Create database:**
 
 ```
 DROP DATABASE IF EXISTS quilldb;
@@ -39,6 +39,14 @@ CREATE DATABASE quilldb;
 Refer resources/schema.sql
 
 View tables: `\dt`
+
+**Sample Data:**
+
+author_tbl:
+```
+INSERT INTO author_tbl(username, password) values ('aragorn', 'forfrodo');
+INSERT INTO author_tbl(username, password) values ('gandalf', 'fly,you fools!');
+```
 
 ## License
 

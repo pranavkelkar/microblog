@@ -8,7 +8,8 @@
                  [hiccup "1.0.5"]
                  [useful "0.8.8"]
                  [seancorfield/next.jdbc "1.1.613"]
-                 [org.postgresql/postgresql "42.1.3"]]
+                 [org.postgresql/postgresql "42.1.3"]
+                 [lib-noir "0.1.1"]]
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler microblog.handler/app}
   :profiles
