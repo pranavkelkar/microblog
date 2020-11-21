@@ -19,6 +19,27 @@ To start a web server for the application, run:
 2. Clone <repo>
 3. Create Leiningen project in cloned repo `lein new compojure <repo> :force`
 
+## Database
+
+Login to database:
+
+```
+psql -U postgres --password
+postgres
+```
+
+Create database:
+
+```
+DROP DATABASE IF EXISTS quilldb;
+CREATE DATABASE quilldb;
+\c quilldb;
+```
+
+Refer resources/schema.sql
+
+View tables: `\dt`
+
 ## License
 
 The source code for microblog is available under the GNU General Public License version 3. For more information, see LICENSE.

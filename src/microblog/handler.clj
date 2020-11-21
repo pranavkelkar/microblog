@@ -1,15 +1,10 @@
 (ns microblog.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
-            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
-            [ring.util.response       :as   response])
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]])
   (:use     [microblog.auth_template :only [register-page login-page]]
-            [microblog.blog_template :only [index-page create-page update-page]]))
-
-(defn do-register
-  [username password]
-  (println "username: " username "password:" password)
-  (response/redirect "/"))
+            [microblog.blog_template :only [index-page create-page update-page]]
+            [microblog.auth :only [do-register]]))
 
 (defroutes app-routes
   (GET "/" [] (index-page))
