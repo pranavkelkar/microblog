@@ -4,7 +4,7 @@
             [next.jdbc            :refer [get-connection prepare execute! prepare]]
             [next.jdbc.result-set :refer [as-unqualified-maps]])
   (:use     [microblog.database :only [ds]]
-            [microblog.utils :only [flash-msg flash-error]]))
+            [microblog.utils :only [flash-success flash-message flash-warning flash-error]]))
 
 (defn get-user
   [username]
@@ -24,13 +24,7 @@
   [username password]
   (if (empty? (get-user username))
     (if (put-user username password)
-      (do
-        (println "New user")
-        (flash-msg "/login" (str "Username " username " successfully registered!")))
-      (println "error entering user in db"))
-    (do
-      (println "User exists")
-      (session/flash-put! :username username)
-      (flash-msg "/register" (str "Username " username " is already registered!")))
-    )
+      (flash-success "/login" (str "Username " username " successfully registered!"))
+      (flash-error "/register" (str "Error occurred during registering user " username ". Please retry!")))
+    (flash-warning "/register" (str "Username " username " is already registered!")))
   )

@@ -1,8 +1,8 @@
 -- Initialize the database.
 -- Drop any existing data and create empty tables.
 
-DROP TABLE IF EXISTS author_tbl;
-DROP TABLE IF EXISTS post_tbl;
+DROP TABLE IF EXISTS author_tbl CASCADE;
+DROP TABLE IF EXISTS post_tbl CASCADE;
 
 CREATE TABLE IF NOT EXISTS author_tbl (
   id SERIAL PRIMARY KEY,

@@ -4,10 +4,15 @@
 
 (defn flash-fn [type]
   (fn [url msg]
-    (println url msg)
-    (println (session/flash-put! type msg))
+    (session/flash-put! type msg)
     (response/redirect url)))
+
+(def flash-success (flash-fn :success))
+
+(def flash-message (flash-fn :message))
+
+(def flash-warning (flash-fn :warning))
 
 (def flash-error (flash-fn :error))
 
-(def flash-msg (flash-fn :message))
+

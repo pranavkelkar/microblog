@@ -25,7 +25,9 @@
 
 (defn base-template
   [user title content template-size]
-  (let [flash-message (session/flash-get :message)
+  (let [flash-success (session/flash-get :success)
+        flash-message (session/flash-get :message)
+        flash-warning (session/flash-get :warning)
         flash-error   (session/flash-get :error)]
     (html
      (doctype :html5)
@@ -40,8 +42,9 @@
        ]
       [:body
        (generate-nav user)
-       (when flash-message (println "debug flash message"))
-       (when flash-error (println "debug flash error"))
-       (when flash-message [:div {:class "flash"} flash-message])
+       (when flash-success [:div {:class "flash_success"} flash-success])
+       (when flash-message [:div {:class "flash_message"} flash-message])
+       (when flash-warning [:div {:class "flash_warning"} flash-warning])
+       (when flash-error [:div {:class "flash_error"} flash-error])
        (content)
        ]])))
