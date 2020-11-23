@@ -27,7 +27,7 @@
 
 (defn login-form
   []
-  (form-to [:post "#"]
+  (form-to [:post "/login"]
            (label :username "Username")
            (text-field :username)
            (label :password "Password")

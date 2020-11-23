@@ -48,6 +48,17 @@ INSERT INTO author_tbl(username, password) values ('aragorn', 'forfrodo');
 INSERT INTO author_tbl(username, password) values ('gandalf', 'fly,you fools!');
 ```
 
+## References
+Logging:
+1. https://github.com/technomancy/leiningen/blob/master/doc/FAQ.md
+2. https://github.com/PlaceAVote/pav-profile-timeline-worker/blob/master/project.clj
+3. https://clojars.org/log4j
+4. https://youtu.be/-GkRuFU_sUg?list=RDQMOhcw-OVq8vA
+5. https://www.tutorialspoint.com/log4j/log4j_configuration.htm
+
+Markdown:
+1. https://github.com/yogthos/markdown-clj
+
 ## License
 
 The source code for microblog is available under the GNU General Public License version 3. For more information, see LICENSE.
